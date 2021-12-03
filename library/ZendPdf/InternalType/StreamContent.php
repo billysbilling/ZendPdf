@@ -24,7 +24,7 @@ class StreamContent extends AbstractTypeObject
     /**
      * Object value
      *
-     * @var \Zend\Memory\Container\AbstractContainer
+     * @var \Laminas\Memory\Container\AbstractContainer
      */
     public $value;
 

@@ -45,7 +45,7 @@ class UpdateInfoContainer
     /**
      * String representation of the object
      *
-     * @var \Zend\Memory\Container\AbstractContainer|null
+     * @var \Laminas\Memory\Container\AbstractContainer|null
      */
     private $_dump = null;
 

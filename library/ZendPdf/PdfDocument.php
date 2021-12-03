@@ -10,7 +10,7 @@
 
 namespace ZendPdf;
 
-use Zend\Memory;
+use Laminas\Memory;
 use ZendPdf\Exception;
 
 /**
@@ -134,7 +134,7 @@ class PdfDocument
     /**
      * Memory manager for stream objects
      *
-     * @var \Zend\Memory\MemoryManager|null
+     * @var \Laminas\Memory\MemoryManager|null
      */
     protected static $_memoryManager = null;
 
@@ -157,7 +157,7 @@ class PdfDocument
     /**
      * Request used memory manager
      *
-     * @return Zend\Memory\MemoryManager
+     * @return Laminas\Memory\MemoryManager
      */
     public static function getMemoryManager()
     {
@@ -171,7 +171,7 @@ class PdfDocument
     /**
      * Set user defined memory manager
      *
-     * @param Zend\Memory\MemoryManager $memoryManager
+     * @param Laminas\Memory\MemoryManager $memoryManager
      */
     public static function setMemoryManager(Memory\MemoryManager $memoryManager)
     {

@@ -16,17 +16,10 @@
             "ZendPdf\\": "library/"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.zendframework.com/",
-            "secure-http": false
-        }
-    ],
     "require": {
         "php": ">=8.1.0",
-        "zendframework/zend-memory": ">=2.0.0",
-        "zendframework/zend-stdlib": ">=2.0.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "laminas/laminas-memory": "^2.5",
+        "laminas/laminas-stdlib": "^3.6"
     }
 }
