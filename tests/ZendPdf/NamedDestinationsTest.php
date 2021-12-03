@@ -25,7 +25,7 @@ use ZendPdf\Action;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class NamedDestinationsTest extends \PHPUnit_Framework_TestCase
+class NamedDestinationsTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Stores the original set timezone
@@ -33,7 +33,7 @@ class NamedDestinationsTest extends \PHPUnit_Framework_TestCase
      */
     private $_originaltimezone;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_originaltimezone = date_default_timezone_get();
         date_default_timezone_set('GMT');
@@ -42,7 +42,7 @@ class NamedDestinationsTest extends \PHPUnit_Framework_TestCase
     /**
      * Teardown environment
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         date_default_timezone_set($this->_originaltimezone);
     }

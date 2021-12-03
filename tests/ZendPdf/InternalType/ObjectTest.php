@@ -25,7 +25,7 @@ use ZendPdf as Pdf;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class ObjectTest extends \PHPUnit_Framework_TestCase
+class ObjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFObject()
     {
@@ -37,10 +37,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadObjectType1()
     {
-        $this->setExpectedException(
-            '\ZendPdf\Exception\RuntimeException',
-            'must not be an instance of \ZendPdf\InternalType\IndirectObject'
-        );
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must not be an instance of \ZendPdf\InternalType\IndirectObject');
 
         $intObj = new InternalType\NumericObject(100);
         $obj1   = new InternalType\IndirectObject($intObj, 1, 0, new ObjectFactory(1));
@@ -49,7 +47,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadGenNumber1()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be non-negative integer');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be non-negative integer');
 
         $intObj = new InternalType\NumericObject(100);
         $obj   = new InternalType\IndirectObject($intObj, 1, -1, new ObjectFactory(1));
@@ -57,7 +56,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadGenNumber2()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be non-negative integer');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be non-negative integer');
 
         $intObj = new InternalType\NumericObject(100);
         $obj    = new InternalType\IndirectObject($intObj, 1, 1.2, new ObjectFactory(1));
@@ -65,7 +65,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadObjectNumber1()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be positive integer');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be positive integer');
 
         $intObj = new InternalType\NumericObject(100);
         $obj    = new InternalType\IndirectObject($intObj, 0, 0, new ObjectFactory(1));
@@ -73,7 +74,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadObjectNumber2()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be positive integer');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be positive integer');
 
         $intObj = new InternalType\NumericObject(100);
         $obj    = new InternalType\IndirectObject($intObj, -1, 0, new ObjectFactory(1));
@@ -81,7 +83,8 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFObjectBadObjectNumber3()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be positive integer');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be positive integer');
 
         $intObj = new InternalType\NumericObject(100);
         $obj    = new InternalType\IndirectObject($intObj, 1.2, 0, new ObjectFactory(1));

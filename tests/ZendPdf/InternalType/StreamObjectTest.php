@@ -27,7 +27,7 @@ use ZendPdf\ObjectFactory;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class StreamObjectTest extends \PHPUnit_Framework_TestCase
+class StreamObjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFStreamObject()
     {

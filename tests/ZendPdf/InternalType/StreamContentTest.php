@@ -26,7 +26,7 @@ use ZendPdf\InternalType;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class StreamContentTest extends \PHPUnit_Framework_TestCase
+class StreamContentTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFStream()
     {

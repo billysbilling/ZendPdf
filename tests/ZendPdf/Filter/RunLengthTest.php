@@ -26,7 +26,7 @@ use ZendPdf\InternalType\StreamFilter;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class RunLengthTest extends \PHPUnit_Framework_TestCase
+class RunLengthTest extends \PHPUnit\Framework\TestCase
 {
     public function testSimpleStringEncode()
     {

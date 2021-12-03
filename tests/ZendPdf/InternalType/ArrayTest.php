@@ -10,6 +10,7 @@
 
 namespace ZendPdfTest\InternalType;
 
+use ZendPdf\Exception\RuntimeException;
 use ZendPdf\InternalType;
 use ZendPdf as Pdf;
 
@@ -27,7 +28,7 @@ use ZendPdf as Pdf;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class ArrayTest extends \PHPUnit_Framework_TestCase
+class ArrayTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFArray1()
     {
@@ -50,16 +51,15 @@ class ArrayTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFArrayBadInput1()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'Argument must be an array');
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Argument must be an array');
         $arrayObj = new InternalType\ArrayObject(346);
     }
 
     public function testPDFArrayBadInput2()
     {
-        $this->setExpectedException(
-            '\ZendPdf\Exception\RuntimeException',
-            'Array elements must be \ZendPdf\InternalType\AbstractTypeObject objects'
-        );
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Array elements must be \ZendPdf\InternalType\AbstractTypeObject objects');
 
         $srcArray = array();
         $srcArray[] = new InternalType\BooleanObject(false);
@@ -109,10 +109,8 @@ class ArrayTest extends \PHPUnit_Framework_TestCase
     /*
     public function testAddBadArgument()
     {
-        $this->setExpectedException(
-            '\ZendPdf\Exception\RuntimeException',
-            'Array elements must be \ZendPdf\InternalType\AbstractTypeObject objects'
-        );
+        $this->expectException(\ZendPdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('Array elements must be \ZendPdf\InternalType\AbstractTypeObject objects');
 
         $arrayObj = new ZPDFPDFArray();
         $arrayObj->add(100.426);

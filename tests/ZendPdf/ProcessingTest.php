@@ -23,7 +23,7 @@ use ZendPdf\Color;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class ProcessingTest extends \PHPUnit_Framework_TestCase
+class ProcessingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Stores the original set timezone
@@ -31,7 +31,7 @@ class ProcessingTest extends \PHPUnit_Framework_TestCase
      */
     private $_originaltimezone;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_originaltimezone = date_default_timezone_get();
         date_default_timezone_set('GMT');
@@ -40,7 +40,7 @@ class ProcessingTest extends \PHPUnit_Framework_TestCase
     /**
      * Teardown environment
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         date_default_timezone_set($this->_originaltimezone);
     }

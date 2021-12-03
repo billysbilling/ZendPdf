@@ -27,7 +27,7 @@ use ZendPdf as Pdf;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class DictionaryTest extends \PHPUnit_Framework_TestCase
+class DictionaryTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFDictionary1()
     {
@@ -50,16 +50,15 @@ class DictionaryTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFDictionaryBadInput1()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be an array');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be an array');
         $dictionaryObj = new InternalType\DictionaryObject(346);
     }
 
     public function testPDFDictionaryBadInput2()
     {
-        $this->setExpectedException(
-            '\ZendPdf\Exception\RuntimeException',
-            'must be \ZendPdf\InternalType\AbstractTypeObject'
-        );
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('must be \ZendPdf\InternalType\AbstractTypeObject');
 
         $srcArray = array();
         $srcArray['Bool'] = new InternalType\BooleanObject(false);
@@ -73,7 +72,8 @@ class DictionaryTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFDictionaryBadInput3()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'keys must be strings');
+        $this->expectException(Pdf\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('keys must be strings');
         $srcArray = array();
         $srcArray['Bool'] = new InternalType\BooleanObject(false);
         $srcArray['Number'] = new InternalType\NumericObject(100.426);

@@ -1,8 +1,11 @@
 {
     "name": "zendframework/zendpdf",
-    "description": "Zend Pdf Component",
+    "description": "Zend Pdf Component, updated to be compatible with PHP 8.1",
     "type": "library",
     "license": "BSD-3-Clause",
+    "config": {
+        "secure-http": false
+    },
     "keywords": [
         "zf2",
         "pdf"
@@ -16,17 +19,14 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://packages.zendframework.com/"
+            "url": "http://packages.zendframework.com/",
+            "secure-http": false
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=8.1.0",
         "zendframework/zend-memory": ">=2.0.0",
-        "zendframework/zend-stdlib": ">=2.0.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
+        "zendframework/zend-stdlib": ">=2.0.0",
+        "phpunit/phpunit": "^9.5"
     }
 }

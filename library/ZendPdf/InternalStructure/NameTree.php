@@ -33,7 +33,7 @@ class NameTree implements ArrayAccess, Countable, Iterator
      *
      * @var array
      */
-    protected $_items = array();
+    protected array $_items = array();
 
     /**
      * Object constructor
@@ -77,49 +77,49 @@ class NameTree implements ArrayAccess, Countable, Iterator
         }
     }
 
-    public function current()
+    public function current(): mixed
     {
         return current($this->_items);
     }
 
 
-    public function next()
+    public function next(): void
     {
-        return next($this->_items);
+        next($this->_items);
     }
 
 
-    public function key()
+    public function key(): string
     {
         return key($this->_items);
     }
 
 
-    public function valid()
+    public function valid(): bool
     {
         return current($this->_items)!==false;
     }
 
 
-    public function rewind()
+    public function rewind(): void
     {
         reset($this->_items);
     }
 
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return array_key_exists($offset, $this->_items);
     }
 
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->_items[$offset];
     }
 
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if ($offset === null) {
             $this->_items[]        = $value;
@@ -129,7 +129,7 @@ class NameTree implements ArrayAccess, Countable, Iterator
     }
 
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->_items[$offset]);
     }
@@ -140,7 +140,7 @@ class NameTree implements ArrayAccess, Countable, Iterator
         $this->_items = array();
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->_items);
     }

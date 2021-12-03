@@ -26,7 +26,7 @@ use ZendPdf\InternalType;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class BinaryStringTest extends \PHPUnit_Framework_TestCase
+class BinaryStringTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFBinaryString()
     {

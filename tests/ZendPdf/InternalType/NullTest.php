@@ -26,7 +26,7 @@ use ZendPdf\InternalType;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class NullTest extends \PHPUnit_Framework_TestCase
+class NullTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFNull()
     {

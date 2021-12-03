@@ -10,6 +10,8 @@
 
 namespace ZendPdfTest;
 
+use ZendPdf\Exception\CorruptedPdfException;
+use ZendPdf\Exception\NotImplementedException;
 use ZendPdf\InternalType;
 use ZendPdf\Action;
 use ZendPdf\Util;
@@ -29,7 +31,7 @@ use ZendPdf\Destination;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class ActionTest extends \PHPUnit_Framework_TestCase
+class ActionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Stores the original set timezone
@@ -37,7 +39,7 @@ class ActionTest extends \PHPUnit_Framework_TestCase
      */
     private $_originaltimezone;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_originaltimezone = date_default_timezone_get();
         date_default_timezone_set('GMT');
@@ -46,7 +48,7 @@ class ActionTest extends \PHPUnit_Framework_TestCase
     /**
      * Teardown environment
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         date_default_timezone_set($this->_originaltimezone);
     }
@@ -387,7 +389,8 @@ class ActionTest extends \PHPUnit_Framework_TestCase
         $dictionary->S    = new InternalType\NameObject('URI');
 
 
-        $this->setExpectedException('\ZendPdf\Exception\CorruptedPdfException', 'URI action dictionary entry is required');
+        $this->expectException(CorruptedPdfException::class);
+        $this->expectExceptionMessage('URI action dictionary entry is required');
         $action = Action\AbstractAction::load($dictionary);
 
     }
@@ -429,10 +432,8 @@ class ActionTest extends \PHPUnit_Framework_TestCase
      */
     public function testPhpVersionBug()
     {
-        $this->setExpectedException(
-            '\ZendPdf\Exception\NotImplementedException',
-            'Cross-reference streams are not supported yet'
-        );
+        $this->expectException(NotImplementedException::class);
+        $this->expectExceptionMessage('Cross-reference streams are not supported yet');
 
         $pdf = Pdf\PdfDocument::load(__DIR__ . '/_files/ZF-8462.pdf');
     }

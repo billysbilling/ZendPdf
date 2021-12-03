@@ -10,6 +10,7 @@
 
 namespace ZendPdfTest\InternalType;
 
+use ZendPdf\Exception\RuntimeException;
 use ZendPdf\InternalType;
 
 /**
@@ -26,7 +27,7 @@ use ZendPdf\InternalType;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class NameTest extends \PHPUnit_Framework_TestCase
+class NameTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFName()
     {
@@ -36,7 +37,8 @@ class NameTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFNameBadString()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'Null character is not allowed');
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Null character is not allowed');
         $nameObj = new InternalType\NameObject("MyName\x00");
     }
 

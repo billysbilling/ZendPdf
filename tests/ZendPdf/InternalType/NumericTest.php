@@ -10,6 +10,7 @@
 
 namespace ZendPdfTest\InternalType;
 
+use ZendPdf\Exception\RuntimeException;
 use ZendPdf\InternalType;
 
 /**
@@ -26,7 +27,7 @@ use ZendPdf\InternalType;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class NumericTest extends \PHPUnit_Framework_TestCase
+class NumericTest extends \PHPUnit\Framework\TestCase
 {
     public function testPDFNumeric()
     {
@@ -36,7 +37,8 @@ class NumericTest extends \PHPUnit_Framework_TestCase
 
     public function testPDFNumericBadArgument()
     {
-        $this->setExpectedException('\ZendPdf\Exception\RuntimeException', 'must be numeric');
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('must be numeric');
         $intObj = new InternalType\NumericObject('some input');
     }
 

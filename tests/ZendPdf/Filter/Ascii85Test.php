@@ -26,7 +26,7 @@ use ZendPdf\InternalType\StreamFilter;
  * @subpackage UnitTests
  * @group      Zend_PDF
  */
-class Ascii85Test extends \PHPUnit_Framework_TestCase
+class Ascii85Test extends \PHPUnit\Framework\TestCase
 {
     public function testStringDivisibleBy4Encode()
     {
