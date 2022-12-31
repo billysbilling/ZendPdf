@@ -10,9 +10,9 @@
 
 namespace ZendPdf\BinaryParser\DataSource;
 
+use Laminas\Stdlib\ErrorHandler;
 use ZendPdf as Pdf;
 use ZendPdf\Exception;
-use Zend\Stdlib\ErrorHandler;
 
 /**
  * Concrete subclass of {@link \ZendPdf\BinaryParser\DataSource\AbstractDataSource}
