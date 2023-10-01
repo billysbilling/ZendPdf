@@ -153,6 +153,7 @@ class PdfDocument
      * @var array
      */
     protected static $_inheritableAttributes = array('Resources', 'MediaBox', 'CropBox', 'Rotate');
+    private string $_pdfHeaderVersion;
 
     /**
      * Request used memory manager
