@@ -38,7 +38,7 @@ class Extracted extends AbstractFont
      *
      * @var string
      */
-    protected $_encoding = null;
+    protected ?string $_encoding = null;
 
     /**
      * Object constructor
