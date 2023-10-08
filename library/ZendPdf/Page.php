@@ -108,7 +108,7 @@ class Page
      *
      * @var boolean
      */
-    protected $_attached;
+    public $_attached;
 
     /**
      * Stream of the drawing instructions.
