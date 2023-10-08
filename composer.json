@@ -2,6 +2,7 @@
     "name": "billysbilling/zendpdf",
     "description": "Zend Pdf Component, updated to be compatible with PHP 8.1",
     "type": "library",
+    "version": "2.2.0",
     "license": "BSD-3-Clause",
     "config": {
         "secure-http": false
