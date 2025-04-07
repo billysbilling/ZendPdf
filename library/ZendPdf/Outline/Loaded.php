@@ -284,7 +284,7 @@ class Loaded extends AbstractOutline
      * @return \ZendPdf\Action\AbstractAction
      * @throws \ZendPdf\Exception\ExceptionInterface
      */
-    public function __construct(InternalType\AbstractTypeObject $dictionary, \SplObjectStorage $processedDictionaries = null)
+    public function __construct(InternalType\AbstractTypeObject $dictionary, ?\SplObjectStorage $processedDictionaries = null)
     {
         if ($dictionary->getType() != InternalType\AbstractTypeObject::TYPE_DICTIONARY) {
             throw new Exception\CorruptedPdfException('$dictionary mast be an indirect dictionary object.');
@@ -334,20 +334,20 @@ class Loaded extends AbstractOutline
      *
      * Returns dictionary indirect object or reference
      *
-     * @internal
      * @param \ZendPdf\ObjectFactory    $factory object factory for newly created indirect objects
      * @param boolean $updateNavigation  Update navigation flag
      * @param \ZendPdf\InternalType\AbstractTypeObject $parent   Parent outline dictionary reference
-     * @param \ZendPdf\InternalType\AbstractTypeObject $prev     Previous outline dictionary reference
-     * @param SplObjectStorage $processedOutlines  List of already processed outlines
+     * @param \ZendPdf\InternalType\AbstractTypeObject|null $prev     Previous outline dictionary reference
+     * @param \SplObjectStorage|null $processedOutlines  List of already processed outlines
      * @return \ZendPdf\InternalType\AbstractTypeObject
      * @throws \ZendPdf\Exception\ExceptionInterface
+     *@internal
      */
-    public function dumpOutline(ObjectFactory $factory,
-                                              $updateNavigation,
-              InternalType\AbstractTypeObject $parent,
-              InternalType\AbstractTypeObject $prev = null,
-                            \SplObjectStorage $processedOutlines = null)
+    public function dumpOutline(ObjectFactory                    $factory,
+                                                                 $updateNavigation,
+                                InternalType\AbstractTypeObject  $parent,
+                                ?InternalType\AbstractTypeObject $prev = null,
+                                ?\SplObjectStorage               $processedOutlines = null)
     {
         if ($processedOutlines === null) {
             $processedOutlines = new \SplObjectStorage();

@@ -92,15 +92,15 @@ abstract class AbstractAction extends Pdf\InternalStructure\NavigationTarget imp
     /**
      * Load PDF action object using specified dictionary
      *
-     * @internal
      * @param \ZendPdf\InternalType\AbstractTypeObject $dictionary (It's actually Dictionary or Dictionary Object or Reference to a Dictionary Object)
-     * @param SplObjectStorage $processedActions  list of already processed action dictionaries, used to avoid cyclic references
+     * @param \SplObjectStorage|null $processedActions  list of already processed action dictionaries, used to avoid cyclic references
      * @return \ZendPdf\Action\AbstractAction
      * @throws \ZendPdf\Exception\ExceptionInterface
+     *@internal
      */
     public static function load(
         InternalType\AbstractTypeObject $dictionary,
-        \SplObjectStorage $processedActions = null
+        ?\SplObjectStorage $processedActions = null
     ): Trans|Rendition|Movie|GoToR|GoToAction|Unknown|Named|Thread|GoToE|Sound|SubmitForm|Hide|Launch|ImportData|AbstractAction|SetOCGState|ResetForm|GoTo3DView|JavaScript|Uri
     {
         if ($processedActions === null) {
@@ -196,11 +196,11 @@ abstract class AbstractAction extends Pdf\InternalStructure\NavigationTarget imp
      *
      * @internal
      * @param \ZendPdf\ObjectFactory $factory    Object factory for newly created indirect objects
-     * @param SplObjectStorage $processedActions  list of already processed actions
+     * @param SplObjectStorage|null $processedActions  list of already processed actions
      *                                            (used to prevent infinity loop caused by cyclic references)
      * @return \ZendPdf\InternalType\IndirectObject|\ZendPdf\InternalType\IndirectObjectReference
      */
-    public function dumpAction(ObjectFactory $factory, \SplObjectStorage $processedActions = null): InternalType\DictionaryObject|InternalType\IndirectObjectReference|InternalType\AbstractTypeObject|InternalType\IndirectObject
+    public function dumpAction(ObjectFactory $factory, ?\SplObjectStorage $processedActions = null): InternalType\DictionaryObject|InternalType\IndirectObjectReference|InternalType\AbstractTypeObject|InternalType\IndirectObject
     {
         if ($processedActions === null) {
             $processedActions = new \SplObjectStorage();

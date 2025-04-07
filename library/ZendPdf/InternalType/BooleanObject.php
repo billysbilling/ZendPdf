@@ -60,10 +60,10 @@ class BooleanObject extends AbstractTypeObject
     /**
      * Return object as string
      *
-     * @param \ZendPdf\ObjectFactory $factory
+     * @param \ZendPdf\ObjectFactory|null $factory
      * @return string
      */
-    public function toString(Pdf\ObjectFactory $factory = null)
+    public function toString(?Pdf\ObjectFactory $factory = null)
     {
         return $this->value ? 'true' : 'false';
     }

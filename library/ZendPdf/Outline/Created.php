@@ -228,8 +228,8 @@ class Created extends AbstractOutline
     public function dumpOutline(ObjectFactory $factory,
                                               $updateNavigation,
               InternalType\AbstractTypeObject $parent,
-              InternalType\AbstractTypeObject $prev = null,
-                            \SplObjectStorage $processedOutlines = null)
+              ?InternalType\AbstractTypeObject $prev = null,
+                            ?\SplObjectStorage $processedOutlines = null)
     {
         if ($processedOutlines === null) {
             $processedOutlines = new \SplObjectStorage();

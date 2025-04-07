@@ -780,10 +780,10 @@ class PdfDocument
      * Set open Action which is actually \ZendPdf\Destination\AbstractDestination or
      * \ZendPdf\Action\AbstractAction object
      *
-     * @param \ZendPdf\InternalStructure\NavigationTarget $openAction
+     * @param \ZendPdf\InternalStructure\NavigationTarget|null $openAction
      * @returns Zend_PDF
      */
-    public function setOpenAction(InternalStructure\NavigationTarget $openAction = null)
+    public function setOpenAction(?InternalStructure\NavigationTarget $openAction = null)
     {
         $root = $this->_trailer->Root;
         $root->touch();

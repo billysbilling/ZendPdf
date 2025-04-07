@@ -42,11 +42,11 @@ class Parsed extends AbstractTrailer
      *
      * @param \ZendPdf\InternalType\DictionaryObject $dict
      * @param \ZendPdf\InternalType\IndirectObjectReference\Context $context
-     * @param \ZendPdf\Trailer\AbstractTrailer $prev
+     * @param \ZendPdf\Trailer\AbstractTrailer|null $prev
      */
-    public function __construct(InternalType\DictionaryObject $dict,
+    public function __construct(InternalType\DictionaryObject                $dict,
                                 InternalType\IndirectObjectReference\Context $context,
-                                AbstractTrailer $prev = null)
+                                ?AbstractTrailer                             $prev = null)
     {
         parent::__construct($dict);
 

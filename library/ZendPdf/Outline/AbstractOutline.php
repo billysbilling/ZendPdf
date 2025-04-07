@@ -267,15 +267,15 @@ abstract class AbstractOutline implements
      * @param \ZendPdf\ObjectFactory    $factory object factory for newly created indirect objects
      * @param boolean $updateNavigation  Update navigation flag
      * @param \ZendPdf\InternalType\AbstractTypeObject $parent   Parent outline dictionary reference
-     * @param \ZendPdf\InternalType\AbstractTypeObject $prev     Previous outline dictionary reference
-     * @param SplObjectStorage $processedOutlines  List of already processed outlines
+     * @param \ZendPdf\InternalType\AbstractTypeObject|null $prev     Previous outline dictionary reference
+     * @param \SplObjectStorage|null $processedOutlines  List of already processed outlines
      * @return \ZendPdf\InternalType\AbstractTypeObject
      */
-    abstract public function dumpOutline(ObjectFactory $factory,
-                                                       $updateNavigation,
-                       InternalType\AbstractTypeObject $parent,
-                       InternalType\AbstractTypeObject $prev = null,
-                                     \SplObjectStorage $processedOutlines = null);
+    abstract public function dumpOutline(ObjectFactory                    $factory,
+                                                                          $updateNavigation,
+                                         InternalType\AbstractTypeObject  $parent,
+                                         ?InternalType\AbstractTypeObject $prev = null,
+                                         ?\SplObjectStorage               $processedOutlines = null);
 
 
     ////////////////////////////////////////////////////////////////////////

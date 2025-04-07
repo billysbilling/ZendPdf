@@ -50,10 +50,10 @@ abstract class AbstractTypeObject
      *
      * $factory parameter defines operation context.
      *
-     * @param \ZendPdf\ObjectFactory $factory
+     * @param \ZendPdf\ObjectFactory|null $factory
      * @return string
      */
-    abstract public function toString(Pdf\ObjectFactory $factory = null);
+    abstract public function toString(?Pdf\ObjectFactory $factory = null);
 
 
     const CLONE_MODE_SKIP_PAGES    = 1; // Do not follow pages during deep copy process
